@@ -1,66 +1,129 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# TokoKita Web Application (Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white)](https://www.chartjs.org/)
 
-## About Laravel
+Aplikasi web **TokoKita** adalah sistem manajemen inventaris dan penjualan yang lengkap, dibangun menggunakan Framework Laravel dengan PHP. Aplikasi ini menyediakan fitur untuk mencatat stok, pembelian, penjualan, serta menampilkan laporan laba bulanan dan sisa stok barang.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1.  **Form Pembuatan Stok Baru**: Melakukan penambahan batch stok baru dengan kuantitas, harga beli per unit (untuk batch tersebut), dan tanggal penerimaan. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2.  **Pencatatan Pembelian Stok**: Merekam transaksi pembelian barang, termasuk detail seperti nama barang, kuantitas, harga beli per unit (yang dapat bervariasi antar pembelian), dan tanggal pembelian. Setiap pembelian secara otomatis menambah batch stok baru.
 
-## Learning Laravel
+3.  **Pencatatan Penjualan**: Merekam transaksi penjualan barang. Sistem ini secara otomatis mengurangi stok berdasarkan metode FIFO (First-In, First-Out). Terdapat validasi stok untuk menolak penjualan jika kuantitas yang diminta melebihi stok yang tersedia. HPP (Harga Pokok Penjualan) dihitung secara otomatis berdasarkan metode FIFO. 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+4.  **Daftar Penjualan dan Pembelian**: Menampilkan riwayat lengkap semua transaksi penjualan dan pembelian yang telah dicatat. 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+5.  **Laporan Laba Bulanan dan Sisa Stok**: Menyajikan laporan laba kotor bulanan (total penjualan dikurangi HPP) yang divisualisasikan dalam bentuk grafik sederhana. Juga menampilkan tabel sisa stok per item beserta estimasi nilainya. 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Deliverables
 
-## Laravel Sponsors
+Berikut adalah artefak yang disertakan dalam repositori ini sesuai dengan permintaan:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1.  **Dokumen Perencanaan**: 
+    * Ringkasan requirement kelima fitur: Terangkum di bagian "Fitur Utama".
+    * Model data & alasan pilihan storage: Dijelaskan di bagian "Pilihan Storage & Layanan Stub".
+    * Pseudo-code/flowchart algoritma: Dijelaskan secara tekstual dalam bagian ini dan terimplementasi dalam `SaleController` serta divalidasi di `FifoLogicTest`.
+2.  **Kode Implementasi**: Seluruh kode sumber, termasuk Controller, Model, Migrations, dan Views, tersedia di folder `app/`, `database/`, dan `resources/views/`.
+3.  **Test Suite**: Tersedia di folder `tests/Unit/` dan `tests/Feature/`. Mencakup unit test untuk logika FIFO dan feature test untuk alur pembelian-penjualan.
+4.  **README / Setup Guide**
 
-### Premium Partners
+## Instalasi dan Setup Aplikasi
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Ikuti langkah-langkah di bawah ini untuk menjalankan aplikasi TokoKita di lingkungan lokal Anda. 
 
-## Contributing
+1.  **Kloning Repositori:**
+    ```bash
+    git clone <URL_REPOSITORI_ANDA>
+    cd tokokita
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2.  **Instal Dependensi Composer:**
+    ```bash
+    composer install
+    ```
 
-## Code of Conduct
+3.  **Konfigurasi Environment:**
+    Buat salinan file `.env.example` dan ganti namanya menjadi `.env`.
+    ```bash
+    cp .env.example .env
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4.  **Buat Kunci Aplikasi:**
+    ```bash
+    php artisan key:generate
+    ```
 
-## Security Vulnerabilities
+5.  **Konfigurasi Database:**
+    Buka file `.env` dan sesuaikan pengaturan database Anda. Aplikasi ini menggunakan database relasional (disarankan MySQL atau SQLite).
+    Contoh konfigurasi untuk MySQL:
+    ```dotenv
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=tokokita_db
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6.  **Jalankan Migrasi Database:**
+    Ini akan membuat tabel-tabel yang diperlukan di database Anda.
+    ```bash
+    php artisan migrate
+    ```
 
-## License
+7.  **Jalankan Aplikasi:**
+    ```bash
+    php artisan serve
+    ```
+    Aplikasi akan tersedia di `http://127.0.0.1:8000` (atau port lain yang ditampilkan).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Menjalankan Test Suite
+
+Proyek ini mencakup unit tests untuk logika FIFO dan integrasi tests untuk alur pembelian-penjualan. 
+
+1.  **Konfigurasi Database Testing (Opsional tetapi disarankan):**
+    Di file `.env`, tambahkan atau pastikan ada baris untuk database testing:
+    ```dotenv
+    DB_DATABASE=tokokita_test # Atau nama database khusus untuk testing Anda
+    ```
+    Pastikan database `tokokita_test` (atau nama yang Anda pilih) sudah dibuat di server database Anda.
+
+2.  **Jalankan Migrasi untuk Database Testing:**
+    ```bash
+    php artisan migrate --env=testing
+    ```
+
+3.  **Jalankan Tes:**
+    ```bash
+    php artisan test
+    ```
+
+4.  **Melihat Laporan Cakupan Kode (Code Coverage):** 
+    Untuk menghasilkan laporan cakupan kode (memerlukan ekstensi Xdebug PHP terinstal):
+    ```bash
+    php artisan test --coverage
+    ```
+    Laporan HTML akan dihasilkan di `storage/logs/coverage/html/index.html`. Target cakupan minimal adalah 80%. 
+
+## Pilihan Storage & Layanan Stub 
+
+**Pilihan Storage:**
+Aplikasi ini menggunakan **database relasional (MySQL/SQLite)** yang dikelola oleh **Laravel Eloquent ORM**. Pilihan ini didasarkan pada beberapa alasan utama:
+
+* **Sifat Data Relasional**: Data inventaris dan transaksi (barang, stok, pembelian, penjualan) memiliki hubungan yang kuat dan konsisten. Database relasional sangat efisien dalam mengelola hubungan ini dan memastikan integritas data.
+* **ACID Compliance**: Untuk data keuangan dan inventaris, properti ACID (Atomicity, Consistency, Isolation, Durability) sangat penting untuk menjamin transaksi yang andal dan mencegah kehilangan data atau inkonsistensi.
+* **Fitur ORM Laravel (Eloquent)**: Eloquent menyediakan antarmuka yang intuitif dan ekspresif untuk berinteraksi dengan database, yang mempercepat pengembangan dan menjaga kejelasan kode. Migrasi database bawaan Laravel juga memudahkan pengelolaan skema.
+* **Implementasi FIFO**: Logika FIFO sangat cocok untuk diimplementasikan dengan query database yang mengurutkan berdasarkan tanggal dan ID, memungkinkan pengambilan batch stok yang benar secara efisien.
+
+Meskipun dokumen menyebutkan "Firebase Firestore atau Database yang lain" untuk penyimpanan data di "klien", dalam konteks aplikasi Laravel (yang secara fundamental adalah aplikasi *server-side* yang melayani tampilan *frontend*), "klien" dalam konteks ini diinterpretasikan sebagai "sisi server aplikasi Laravel yang mengelola data". Firebase Firestore lebih umum digunakan pada arsitektur *frontend* SPA (Single Page Application) yang langsung berinterinteraksi dengan NoSQL database dari browser, yang merupakan pola arsitektur yang berbeda.
+
+**Layanan Stub:**
+Dalam implementasi ini, tidak ada "layanan stub" eksplisit yang digunakan. Aplikasi Laravel ini bertindak sebagai *full-stack*, di mana kontroler Laravel secara langsung berinterinteraksi dengan model Eloquent dan database. Ini adalah pola umum untuk aplikasi web berbasis Laravel. Jika ini adalah aplikasi *frontend* murni (misalnya, React atau Vue.js), maka "layanan stub" akan menjadi *mock API* atau *local JSON server* untuk menyimulasikan respons backend selama pengembangan *frontend* sebelum *backend* yang sebenarnya tersedia.
+
+## Pseudo-code/Flowchart Algoritma Sistem
+
+![alt text](Flowchart_Smartlink.drawio.png)
